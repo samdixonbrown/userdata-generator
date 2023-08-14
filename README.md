@@ -1,9 +1,9 @@
 <a name="readme-top"></a>
 
-[![Contributors][contributors-shield]][https://github.com/samdixonbrown/userdata-generator/graphs/contributors]
-[![Issues][issues-shield]][https://github.com/samdixonbrown/userdata-generator/issues]
-[![MIT License][license-shield]][https://github.com/samdixonbrown/userdata-generator/blob/main/LICENSE]
-[![LinkedIn][linkedin-shield]][https://www.linkedin.com/in/sambrown/]
+[![Contributors][contributors-shield]][contributors-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
 
 
 
@@ -292,7 +292,7 @@ Project Link: [https://github.com/samdixonbrown/userdata-generator](https://gith
 [issues-shield]: https://img.shields.io/github/issues/samdixonbrown/userdata-generator.svg?style=for-the-badge
 [issues-url]: https://github.com/samdixonbrown/userdata-generator/issues
 [license-shield]: https://img.shields.io/github/license/samdixonbrown/userdata-generator.svg?style=for-the-badge
-[license-url]: https://github.com/samdixonbrown/userdata-generator/blob/master/LICENSE.txt
+[license-url]: https://github.com/samdixonbrown/userdata-generator/blob/main/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/sambrown
 [Python]: https://www.python.org/static/community_logos/python-logo-master-v3-TM-flattened.png
