@@ -86,7 +86,7 @@ Copy the ```userdata-generator.py``` file into your Django project's directory o
 Import the required functions into your Django views, models or any other relevant files:
 
 ```python
-from userdata-generator import generate_password, generate_email, generate_username
+from userdata-generator import generate_password, generate_email, generate_username, generate_name, generate_full_name
 ```
 
 The module contains 5 functions:
@@ -98,8 +98,23 @@ The module contains 5 functions:
 
 Whilst these are randomly generated and suitable for most small-medium applications, they do not guarantee to be unique. So for very large use-cases, if you need to guarantee uniqueness you may be better using UUID or another similar approach.
 
-Parameters can be passed positionally rather than declaratively but for the purposes of this documentation, the declarative option has been used for clarity.
+Parameters can of course be passed positionally rather than explicitly but for the purposes of this documentation, the explicit form has been used for clarity.
 
+___
+### Complete Django example
+```python
+from myapp.models import CustomUser
+from userdata-generator import generate_password, generate_email, generate_username, generate_name
+
+
+user = CustomUser.objects.create_user(
+    username=generate_username(), 
+    password=generate_password(), 
+    email=generate_email(), 
+    first_name=generate_name(), 
+    last_name=generate_name()
+    )
+```
 ___
 
 ### generate_username(length=None, max_length=20, include_numbers=True, include_specials=False)
@@ -234,7 +249,7 @@ generate_full_name(firstname_max_length=12, lastname_max_length=24) # Pfufsnrnj 
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ] Guarantee no duplicated strings returned in each function execution
+- [ ] Batch creation functions with guarantee of no duplicates in each function execution
 
 
 See the [open issues](https://github.com/samdixonbrown/userdata-generator/issues) for a full list of proposed features (and known issues).
