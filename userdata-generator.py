@@ -3,34 +3,9 @@ import string
 
 '''
 Some simple utility functions for creating pseudo random user data. 
-For example these can be useful when creating test/fake users for Django applications
+For example these can be useful when creating test/fake users for Django applications.
+See https://github.com/samdixonbrown/userdata-generator/blob/main/README.md for documentation and usage examples.
 '''
-
-def generate_random_string(length, include_numbers=False, include_specials=False):
-    '''
-    Generate a random string of lowercase ASCII letters with optional numbers and special characters
-    '''
-
-    # Validate parameters
-    if not isinstance(length, int):
-        raise ValueError("length parameter must be an integer")
-    
-    if not isinstance(include_numbers, bool) or not isinstance(include_specials, bool):
-        raise ValueError("include_numbers and include_specials must be boolean True/False")
-
-    if length < 1:
-        raise ValueError("length parameter must be at least 1")
-
-    # Form set of characters to choose from
-    character_set = string.ascii_lowercase
-    if include_specials:
-        character_set += "!#$%&'*+-/=?^_`{|}~."
-    
-    if include_numbers:
-        character_set += string.digits
-
-    return ''.join(random.choice(character_set) for i in range(length))
-
 
 def generate_username(length=None, max_length=20, include_numbers=True, include_specials=False):
     '''
@@ -89,7 +64,7 @@ def generate_email(username_length=None, domain_length=None, tld_length=None, in
     if tld_length < 2 or tld_length > 64:
         raise ValueError("tld_length must be between 2 and 64")
 
-    return f"{generate_random_string(username_length, include_numbers=True, include_specials=True)}@{generate_random_string(domain_length, include_numbers=True)}.{generate_random_string(tld_length)}"
+    return f"{generate_random_string(username_length, include_numbers=True, include_specials=include_specials)}@{generate_random_string(domain_length, include_numbers=True)}.{generate_random_string(tld_length)}"
 
 
 def generate_password(length=None, max_length=32, include_specials=True):
@@ -98,7 +73,7 @@ def generate_password(length=None, max_length=32, include_specials=True):
     - 1 Uppercase letter
     - 1 Lowercase letter
     - 1 Number
-    - 1 Special character (optional)
+    - 1 Special character (optional, enabled by default)
     '''
 
     if length is None:
@@ -156,7 +131,7 @@ def generate_name(length=None, max_length=32):
 
     if length is None:
         # Skew the likely name length towards shorter names
-        length = int(random.triangular(2, 8, max_length))
+        length = int(random.triangular(2, 12, max_length))
     
     # Check we're being passed an integer value for length parameters
     if not isinstance(length, int) or not isinstance(max_length, int):
@@ -174,11 +149,11 @@ def generate_full_name(firstname_length=None, lastname_length=None, firstname_ma
 
     if firstname_length is None:
         # Skew the likely name length towards shorter names
-        firstname_length = int(random.triangular(2, 8, firstname_max_length))
+        firstname_length = int(random.triangular(2, 10, firstname_max_length))
     
     if lastname_length is None:
         # Skew the likely name length towards shorter names
-        lastname_length = int(random.triangular(2, 8, lastname_max_length))
+        lastname_length = int(random.triangular(2, 10, lastname_max_length))
 
     # Validate parameters
     if not isinstance(firstname_length, int) or not isinstance(lastname_length, int) or not isinstance(firstname_max_length, int) or not isinstance(lastname_max_length, int):
@@ -191,3 +166,29 @@ def generate_full_name(firstname_length=None, lastname_length=None, firstname_ma
         raise ValueError("Name lengths must be less than max lengths")
 
     return f"{generate_name(firstname_length)} {generate_name(lastname_length)}"
+
+
+def generate_random_string(length, include_numbers=False, include_specials=False):
+    '''
+    Generate a random string of lowercase ASCII letters with optional numbers and special characters
+    '''
+
+    # Validate parameters
+    if not isinstance(length, int):
+        raise ValueError("length parameter must be an integer")
+    
+    if not isinstance(include_numbers, bool) or not isinstance(include_specials, bool):
+        raise ValueError("include_numbers and include_specials must be boolean True/False")
+
+    if length < 1:
+        raise ValueError("length parameter must be at least 1")
+
+    # Form set of characters to choose from
+    character_set = string.ascii_lowercase
+    if include_specials:
+        character_set += "!#$%&'*+-/=?^_`{|}~."
+    
+    if include_numbers:
+        character_set += string.digits
+
+    return ''.join(random.choice(character_set) for i in range(length))
