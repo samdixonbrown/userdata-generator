@@ -10,8 +10,12 @@
 <h3 align="center">Userdata Generator</h3>
 
   <p align="center">
-    Python based random username, password, email address and name generator. This can be used, for example, when creating fake/test users for Django applications.
-    <br />
+    Userdata Generator is a Python based random username, password, email address and name generator. It can be used, for example, when creating fake/test users for Django applications.
+  </p>
+  <p align="center">
+    Userdata Generator includes a random username generator, random email address generator, random password generator and random name generator.
+  </p>
+  <p align="center">
     <a href="https://github.com/samdixonbrown/userdata-generator/issues">Report Bug</a>
     ·
     <a href="https://github.com/samdixonbrown/userdata-generator/issues">Request Feature</a>
@@ -63,7 +67,7 @@
 <!-- GETTING STARTED -->
 ## Getting Started
 
-The ```userdata-generator module``` is designed to provide convenient functions for generating usernames, passwords, email addresses, and names for test users, for example in a Django application. To integrate this module into your project, follow these steps:
+The ```userdata-generator``` module is designed to provide convenient functions for generating usernames, passwords, email addresses, and names for test users, for example in a Django application. To integrate this module into your project, follow these steps:
 
 ### Step 1: Installation
 
@@ -90,11 +94,11 @@ from userdata-generator import generate_password, generate_email, generate_usern
 ```
 
 The module contains 5 functions:
-- [ ] generate_username()
-- [ ] generate_email()
-- [ ] generate_password()
-- [ ] generate_name()
-- [ ] generate_full_name()
+- <a href="#generate-username-length-none-max-length-20-include-numbers-true-include-specials-false">generate_username()</a>
+- <a href="#generate-email-username-length-none-domain-length-none-tld-length-none-include-specials-false">generate_email()</a>
+- <a href="#generate-password-length-none-max-length-32-include-specials-true">generate_password()</a>
+- <a href="#generate-name-length-none-max-length-32">generate_name()</a>
+- <a href="#generate-full-name-firstname-length-none-lastname-length-none-firstname-max-length-32-lastname-max-length-32">generate_full_name()</a>
 
 Whilst these are randomly generated and suitable for most small-medium applications, they do not guarantee to be unique. So for very large use-cases, if you need to guarantee uniqueness you may be better using UUID or another similar approach.
 
