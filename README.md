@@ -94,11 +94,11 @@ from userdata-generator import generate_password, generate_email, generate_usern
 ```
 
 The module contains 5 functions:
-- <a href="#generate-username-length-none-max-length-20-include-numbers-true-include-specials-false">generate_username()</a>
-- <a href="#generate-email-username-length-none-domain-length-none-tld-length-none-include-specials-false">generate_email()</a>
-- <a href="#generate-password-length-none-max-length-32-include-specials-true">generate_password()</a>
-- <a href="#generate-name-length-none-max-length-32">generate_name()</a>
-- <a href="#generate-full-name-firstname-length-none-lastname-length-none-firstname-max-length-32-lastname-max-length-32">generate_full_name()</a>
+- [generate_username()](#generate-username)
+- [generate_email()](#generate-email)
+- [generate_password()](#generate-password)
+- [generate_name()](#generate-name)
+- [generate_full_name()](#generate-full-name)
 
 Whilst these are randomly generated and suitable for most small-medium applications, they do not guarantee to be unique. So for very large use-cases, if you need to guarantee uniqueness you may be better using UUID or another similar approach.
 
@@ -120,6 +120,7 @@ user = CustomUser.objects.create_user(
     )
 ```
 ___
+<a id="generate-username"></a>
 
 ### generate_username(length=None, max_length=20, include_numbers=True, include_specials=False)
 If no parameters are passed, by default the function generates a random username of 2 <= ```length``` <= ```max_length``` including numbers but excluding special characters.
@@ -147,6 +148,7 @@ generate_username(include_numbers=False, include_specials=True) # xxrjj_w.r{b
 ```
 
 ___
+<a id="generate-email"></a>
 
 ### generate_email(username_length=None, domain_length=None, tld_length=None, include_specials=False)
 Generate a string representing a valid email address in the form ```username@domain.tld```. 
@@ -170,6 +172,7 @@ generate_email(include_specials=True) # bs%tta+@ek10g0lm.jlw
 ```
 
 ___
+<a id="generate-password"></a>
 
 ### generate_password(length=None, max_length=32, include_specials=True)
 Generates a string representing a password fulfilling the basic requirements:
@@ -203,6 +206,7 @@ generate_password(include_specials=False) # FVyj39EjxlvA27r
 ```
 
 ___
+<a id="generate-name"></a>
 
 ### generate_name(length=None, max_length=32)
 Generate a capitalized string representing a name. If no parameters are passed, it will return a random string 2 <= ```length``` <=32.
@@ -224,6 +228,7 @@ generate_name(max_length=64) # Ywwogyghkjpecehufiecb
 ```
 
 ___
+<a id="generate-full-name"></a>
 
 ### generate_full_name(firstname_length=None, lastname_length=None, firstname_max_length=32, lastname_max_length=32)
 Generate a space-separated string representing a full name.
